@@ -1,0 +1,31 @@
+/* ============================
+    Configurações Globais
+============================ */
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Reset de margin, padding e box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Definições de variáveis para cores e fontes */
+:root {
+    --cor1: #121212;
+    /* Cor de fundo principal */
+    --cor2: #F5F5F5;
+    /* Cor do texto principal */
+    --cor3: #00acb580;
+    /* Cor de destaque (transparente) */
+    --cor4: #393E46;
+    /* Cor secundária */
+    --cor5: #EEEEEE;
+    /* Cor de texto claro */
+    --fonte_destaque: "Roboto", sans-serif;
+    /* Fonte de destaque */
+    --fonte_padrao: "Roboto Mono", sans-serif;
+    /* Fonte padrão */
+}
+@import url(style.css);

@@ -1,0 +1,152 @@
+/* Reset de margin, padding e box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Definições de variáveis para cores e fontes */
+:root {
+    --cor1: #121212;
+    /* Cor de fundo principal */
+    --cor2: #F5F5F5;
+    /* Cor do texto principal */
+    --cor3: #00acb580;
+    /* Cor de destaque (transparente) */
+    --cor4: #393E46;
+    /* Cor secundária */
+    --cor5: #EEEEEE;
+    /* Cor de texto claro */
+    --fonte_destaque: "Roboto", sans-serif;
+    /* Fonte de destaque */
+    --fonte_padrao: "Roboto Mono", sans-serif;
+    /* Fonte padrão */
+}
+
+/* ============================
+    Conteúdo Principal
+============================ */
+.container__main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    max-width: 1024px;
+    margin: 20px auto;
+}
+
+.about__title {
+    margin-top: 40px;
+}
+
+.about__text {
+    margin-top: 40px;
+}
+
+/* =============================
+   Seção Projetos
+============================= */
+.section__projects {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.projects__title {
+    font-size: 2rem;
+}
+
+.projects__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.card__project {
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--cor3);
+    width: 200px;
+    height: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+.card__project:hover {
+    transform: translateY(-5px);
+}
+
+.card__title {
+    font-size: 1.4rem;
+    color: var(--cor3);
+}
+
+.card__description {
+    font-size: 1rem;
+    color: var(--cor2);
+}
+
+/* =============================
+   Seção Contato
+   ============================= */
+.section__contact {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.contact__title {
+    font-size: 2rem;
+}
+
+.contact__info {
+    margin-top: 10px;
+}
+
+.contact__email {
+    display: block;
+    font-size: 1.2rem;
+    color: var(--cor3);
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+.contact__email:hover {
+    text-decoration: underline;
+}
+
+/* =============================
+   Rodapé (Footer)
+   ============================= */
+.container__footer {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.footer__text {
+    font-size: 0.9rem;
+    color: var(--cor3);
+}
+
+/* =============================
+   Responsividade
+   ============================= */
+@media (max-width: 768px) {
+    .container__header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header__nav {
+        margin-top: 10px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .projects__grid {
+        flex-direction: column;
+        align-items: center;
+    }
+}

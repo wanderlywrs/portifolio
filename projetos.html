@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projetos</title>
+</head>
+
+<body data-theme="light">
+    <header class="container_header">
+        <div class="logo">Meu Portfólio</div>
+        <div class="nav_container">
+            <nav>
+                <a href="sobre.html">Sobre |</a>
+                <a href="projetos.html">Projetos |</a>
+                <a href="#contato">Contato |</a>
+            </nav>
+            <button class="theme-toggle" aria-label="Alternar tema">🌙</button>
+        </div>
+    </header>
+    <!-- Seção Projetos -->
+    <section id="projects" class="section__projects">
+        <h2 class="projects__title">Meus Projetos</h2>
+        <div class="projects__grid">
+            <article class="card__project">
+                <h3 class="card__title">Projeto 1</h3>
+                <p class="card__description">Descrição breve do
+                    projeto.</p>
+            </article>
+            <article class="card__project">
+                <h3 class="card__title">Projeto 2</h3>
+                <p class="card__description">Descrição breve do
+                    projeto.</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- Seção Contato -->
+    <section id="contact" class="section__contact">
+        <h2 class="contact__title">Entre em Contato</h2>
+        <div class="contact__info">
+            <a href="mailto:email@email.com" class="contact__email">wanderly.wrs@gmail.com</a>
+            <div class="social-links">
+                <a href="https://github.com/seuusuario" class="icon--github"><img src="img/github.png" alt="GitHub"></a>
+                <a href="https://linkedin.com/in/seuusuario" class="icon--linkedin"><img src="img/limkedin.png"
+                        alt="LinkedIn"></a>
+                <a href="https://www.instagram.com/seuperfil" target="_blank" aria-label="Instagram">
+                    <img src="../img/instagram.png" alt="Instagram">
+                </a>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <footer class="container__footer">
+        <p class="footer__text">© 2025 Wanderly. Todos os direitos
+            reservados.</p>
+    </footer>
+    <script>
+        // Função para alternar o tema entre claro e escuro
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+            // Atualiza o tema
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+
+            // Atualiza o ícone do botão
+            const themeToggle = document.querySelector('.theme-toggle');
+            themeToggle.textContent = newTheme === 'light' ? '🌙' : '☀️';
+        }
+
+
+        // Mantém o tema ao recarregar a página
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.body.setAttribute('data-theme', savedTheme);
+            document.querySelector('.theme-toggle').textContent = savedTheme === 'light' ? '🌙' : '☀️';
+        });
+
+        // Adiciona o evento de clique ao botão de alternância de tema
+        document.querySelector('.theme-toggle').addEventListener('click', toggleTheme);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PortDev</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body data-theme="light">
+    <header class="container_header">
+        <div class="logo">Meu Portfólio</div>
+        <div class="nav_container">
+            <nav>
+                <a href="sobre.html">Sobre |</a>
+                <a href="projetos.html">Projetos |</a>
+                <a href="#contato">Contato |</a>
+            </nav>
+            <button class="theme-toggle" aria-label="Alternar tema">🌙</button>
+        </div>
+    </header>
+
+
+    <main class="main" id="home">
+        <!-- Seção de boas-vindas e introdução -->
+        <section class="intro">
+            <div class="hero_info">
+                <h1 class="tracking-in-expand-fwd">Olá, eu sou Wanderly</h1>
+                <h2 class="tracking-in-expand-fwd">Developer | Front-End.</h2>
+                <p>Desenvolvedor Front-end com experiência em interfaces dinâmicas, responsivas e acessíveis, focado em criar experiências de usuário eficientes e intuitivas.</p>
+                <button class="btn bounce-top">Currículo</button>
+            </div>
+            <div class="hero_img">
+                <picture class="intro__img">
+                    <img src="img/img.png" alt="">
+                </picture>
+            </div>
+            <section class="hero_actions">
+                <a href="https://www.instagram.com/seuperfil" target="_blank" aria-label="Instagram">
+                    <img src="../img/instagram.png" alt="Instagram">
+                </a>
+                </a>
+                <a href="https://www.linkedin.com/in/seuperfil" target="_blank" aria-label="LinkedIn">
+                    <img src="../img/linkedin1.png" alt="LinkedIn">
+                </a>
+                <a href="https://github.com/seuperfil" target="_blank" aria-label="GitHub">
+                    <img src="../img/github.png" alt="GitHub">
+                </a>
+            </section>
+        </section>
+    </main>
+
+    <script>
+        // Função para alternar o tema entre claro e escuro
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+            // Atualiza o tema
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+
+            // Atualiza o ícone do botão
+            const themeToggle = document.querySelector('.theme-toggle');
+            themeToggle.textContent = newTheme === 'light' ? '🌙' : '☀️';
+        }
+
+
+        // Mantém o tema ao recarregar a página
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.body.setAttribute('data-theme', savedTheme);
+            document.querySelector('.theme-toggle').textContent = savedTheme === 'light' ? '🌙' : '☀️';
+        });
+
+        // Adiciona o evento de clique ao botão de alternância de tema
+        document.querySelector('.theme-toggle').addEventListener('click', toggleTheme);
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,423 @@
+/* ============================
+    Configurações Globais
+============================ */
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Reset de margin, padding e box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Definições de variáveis para cores e fontes */
+:root {
+    --cor1: #121212;
+    /* Cor de fundo principal */
+    --cor2: #F5F5F5;
+    /* Cor do texto principal */
+    --cor3: #00acb580;
+    /* Cor de destaque (transparente) */
+    --cor4: #393E46;
+    /* Cor secundária */
+    --cor5: #EEEEEE;
+    /* Cor de texto claro */
+    --fonte_destaque: "Roboto", sans-serif;
+    /* Fonte de destaque */
+    --fonte_padrao: "Roboto Mono", sans-serif;
+    /* Fonte padrão */
+}
+
+/* ============================
+    Estilos de Corpo e Tema
+============================ */
+
+body {
+    background-color: var(--cor1);
+    color: var(--cor2);
+    font-family: var(--fonte_padrao);
+    transition: background-color .9s, color .9s;
+}
+
+/* Tema claro */
+body[data-theme="light"] {
+    background-color: #FFFFFF;
+    color: var(--cor1);
+}
+
+body[data-theme="light"] .container_header,
+body[data-theme="light"] .container__footer {
+    background-color: #d8d8d86d;
+    box-shadow: 1px 1px 10px #00000030;
+}
+
+body[data-theme="light"] nav a {
+    color: var(--cor1);
+}
+
+body[data-theme="light"] .theme-toggle {
+    background-color: var(--cor3);
+    color: var(--cor1);
+}
+
+/* Alterando o fundo e a cor do texto dentro do card no tema claro */
+body[data-theme="light"] .card__project {
+    background-color: var(--cor3);
+    /* Cor de fundo do card no tema claro */
+}
+
+body[data-theme="light"] .card__title,
+body[data-theme="light"] .card__description,
+body[data-theme="light"] .footer__text {
+    color: var(--cor1);
+    /* Garantindo que o texto do título e descrição no card seja a cor1 no tema claro */
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-family: var(--fonte_destaque);
+}
+p{
+    font-size: 1rem;
+    font-family: var(--fonte_padrao);
+}
+
+/* ============================
+    Cabeçalho
+============================ */
+
+/* Estilo geral do cabeçalho */
+.container_header {
+    display: flex;
+    height: 70px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #1E1E1E;
+
+}
+
+/* Logo */
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+/* Container de navegação */
+.nav_container {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 10px;
+}
+
+/* Estilo dos links de navegação */
+nav a {
+    color: var(--cor5);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Efeito hover nos links */
+nav a:hover {
+    color: var(--cor3);
+}
+
+/* Botão de troca de tema */
+.theme-toggle {
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    background-color: var(--cor4);
+    color: var(--cor5);
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+/* Efeito hover no botão de troca de tema */
+.theme-toggle:hover {
+    background-color: var(--cor3);
+}
+
+/* ============================
+    Conteúdo Principal
+============================ */
+.main .intro {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    height: auto;
+    max-width: 1024px;
+    margin: 20px auto;
+}
+
+.intro__img>img {
+    height: 300px;
+}
+
+.hero_info {
+    display: flex;
+    height: 400px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.hero_info>h1 {
+    font-size: 2.5rem;
+    font-family: var(--fonte_destaque);
+}
+
+.hero_info>h2 {
+    font-size: 1.5rem;
+    font-family: var(--fonte_destaque);
+}
+
+.hero_info>p {
+    width: 600px;
+    font-size: 0.8em;
+    font-family: var(--fonte_padrao);
+    text-align: justify;
+    padding-top: 20px;
+}
+
+.hero_actions {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.btn {
+    width: 180px;
+    padding: 8px;
+    color: var(--cor3);
+    background-color: transparent;
+    border: 3px solid var(--cor3);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 50px;
+}
+
+/* Efeito hover nos botões */
+.btn:hover {
+    background-color: #00acb580;
+}
+
+/* ============================
+    Redes Sociais
+============================ */
+
+.social__link {
+    display: flex;
+    gap: 10px;
+}
+
+.social__link>a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+    margin: 10px;
+    color: var(--cor5);
+}
+
+/* Efeito hover nos links sociais */
+.social__link>a:hover {
+    color: var(--cor3);
+}
+
+/*============================================
+    Animação de entrada com efeito de salto 
+ ===========================================*/
+
+.bounce-top {
+    -webkit-animation: bounce-top .8s alternate both;
+    animation: bounce-top 1.2s alternate both
+}
+
+@keyframes bounce-top {
+    0% {
+        -webkit-transform: translateY(-45px);
+        transform: translateY(-45px);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+        opacity: 1
+    }
+
+    24% {
+        opacity: 1
+    }
+
+    40% {
+        -webkit-transform: translateY(-24px);
+        transform: translateY(-24px);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in
+    }
+
+    65% {
+        -webkit-transform: translateY(-12px);
+        transform: translateY(-12px);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in
+    }
+
+    82% {
+        -webkit-transform: translateY(-6px);
+        transform: translateY(-6px);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in
+    }
+
+    93% {
+        -webkit-transform: translateY(-4px);
+        transform: translateY(-4px);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in
+    }
+
+    25%,
+    55%,
+    75%,
+    87% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        -webkit-animation-timing-function: ease-out;
+        animation-timing-function: ease-out
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        -webkit-animation-timing-function: ease-out;
+        animation-timing-function: ease-out;
+        opacity: 1
+    }
+}
+
+/*============================================
+        Animação de expansão do texto
+ ===========================================*/
+.tracking-in-expand-fwd {
+    -webkit-animation: tracking-in-expand-fwd 1.2s cubic-bezier(.215, .61, .355, 1.000) both;
+    animation: tracking-in-expand-fwd 1.2s cubic-bezier(.215, .61, .355, 1.000) both
+}
+
+@keyframes tracking-in-expand-fwd {
+    0% {
+        letter-spacing: -.5em;
+        -webkit-transform: translateZ(-700px);
+        transform: translateZ(-700px);
+        opacity: 0
+    }
+
+    40% {
+        opacity: .6
+    }
+
+    100% {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        opacity: 1
+    }
+}
+
+/*=====================================
+         luz animada na borda
+=====================================*/
+/* @keyframes borderMove {
+    0% {
+        border-image-source: linear-gradient(0deg, #ff00ff, #00ffff);
+    }
+
+    25% {
+        border-image-source: linear-gradient(90deg, #ff00ff, #00ffff);
+    }
+
+    50% {
+        border-image-source: linear-gradient(180deg, #ff00ff, #00ffff);
+    }
+
+    75% {
+        border-image-source: linear-gradient(270deg, #ff00ff, #00ffff);
+    }
+
+    100% {
+        border-image-source: linear-gradient(360deg, #ff00ff, #00ffff);
+    }
+}
+
+.main .intro {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    height: auto;
+    max-width: 1024px;
+    width: 100%;
+    margin: 20px auto;
+    padding: 20px;
+
+    //=> Efeito de luz na borda <=\\
+    border: .5px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(90deg, #ff00ff, #00ffff);
+    animation: borderMove 4s linear infinite;
+} */
+
+/* ============================
+    Responsividade
+============================ */
+
+/* Responsividade para telas pequenas */
+@media (max-width: 768px) {
+    .container_header {
+        display: flex;
+        padding: 1rem;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+
+    #home .intro {
+        display: flex;
+        height: 500px;
+        flex-direction: column;
+    }
+
+    .hero_info {
+        display: flex;
+        height: 400px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: stretch;
+        padding: 0 20px;
+    }
+
+    .hero_info>h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero_info>h2 {
+        font-size: .8rem;
+        font-family: var(--fonte_destaque);
+    }
+
+    .hero_info>p {
+        width: 100%;
+    }
+
+    .btn {
+
+        width: 50%;
+
+    }
+
+    .intro__img>img {
+        height: 160px;
+        transform: translateY(0);
+        margin-bottom: 20px;
+    }
+}
